@@ -1,0 +1,78 @@
+/* --- ESTILOS GERAIS E LAYOUT --- */
+body {
+    background-color: #0a0a0a; color: #00ff41; font-family: 'VT323', monospace;
+    margin: 0; padding: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.4) 50%, transparent 50%);
+    background-size: 100% 4px;
+}
+.main-container { display: flex; min-height: 100vh; width: 100%; align-items: stretch; }
+.left-panel, .right-panel {
+    flex: 1; padding: 40px; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+}
+.right-panel { border-left: 2px solid rgba(0, 255, 65, 0.5);
+    background-image: url('back3.jpg');
+    background-size: cover; /* Faz o GIF cobrir toda a tela */
+    background-position: center; /* Centraliza o GIF */ 
+}
+.left-panel { 
+    background-image: url('back4.jpg');
+    background-size: cover; /* Faz o GIF cobrir toda a tela */
+    background-position: center; /* Centraliza o GIF */ 
+}
+.panel-title {
+    font-family: 'Share Tech Mono', monospace; font-size: 2em; color: #00ffcc;
+    text-shadow: 0 0 8px #00ffcc; margin-bottom: 25px;
+}
+.panel-text { font-size: 1.3em; line-height: 1.6; max-width: 500px; margin-bottom: 30px; }
+
+/* --- PAINEL ESQUERDO (CONTROLE DE ATAQUE) --- */
+.attack-coords {
+    background-color: #05140c; border: 1px solid #ff3b3b; padding: 20px;
+    margin-bottom: 20px; width: 100%; max-width: 500px;
+}
+.attack-coords label { display: block; font-size: 1.2em; color: #aaa; }
+.attack-coords input {
+    width: 100%; padding: 10px; background: none; border: none; color: #ff3b3b;
+    text-align: center; font-family: 'Share Tech Mono', monospace; font-size: 2em;
+    text-shadow: 0 0 5px #ff3b3b; box-sizing: border-box;
+}
+.attack-coords input:disabled { cursor: not-allowed; opacity: 0.6; }
+
+/* --- BOTÕES --- */
+.action-button {
+    padding: 15px 30px; background-color: transparent; border-radius: 5px;
+    font-size: 1.2em; font-family: 'Share Tech Mono', monospace; text-decoration: none;
+    cursor: pointer; transition: all 0.3s;
+}
+.action-button.big-button { font-size: 1.8em; margin-top: 20px; }
+.action-button.red { border: 2px solid #ff3b3b; color: #ff3b3b; }
+.action-button.red:hover { background-color: #ff3b3b; color: #0a0a0a; box-shadow: 0 0 15px #ff3b3b; }
+.action-button.gray { border: 2px solid gray; color: gray }
+.action-button.gray:hover { background-color: gray; color: #0a0a0a; box-shadow: 0 0 15px gray; }
+.action-button.green { border: 2px solid #00ff41; color: #00ff41; }
+.action-button.green:hover { background-color: #00ff41; color: #0a0a0a; box-shadow: 0 0 15px #00ff41; }
+.action-button:disabled { cursor: not-allowed; filter: grayscale(80%); opacity: 0.5; }
+
+/* --- MODAL DE AUTENTICAÇÃO --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);
+    display: none; justify-content: center; align-items: center; z-index: 1000;
+}
+.modal-content {
+    background-color: #0a0a0a; padding: 40px; border: 2px solid #00ffcc; border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.5); width: 100%; max-width: 500px;
+}
+.modal-content .input-group { text-align: left; margin-bottom: 15px; }
+.modal-content .input-group label { display: block; margin-bottom: 5px; }
+.modal-content .input-group input {
+    width: 100%; padding: 10px; background-color: #05140c;
+    border: 1px solid #00ff41; border-radius: 4px; color: #00ff41;
+    font-family: 'VT323', monospace; font-size: 1.5em; box-sizing: border-box;
+}
+.modal-content .input-group input:focus { outline: none; box-shadow: 0 0 10px #00ff41; }
+.modal-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+.error-message {
+    color: #ff3b3b; font-size: 1.2em; height: 20px; text-shadow: 0 0 5px #ff3b3b;
+    margin-top: 10px;
+}

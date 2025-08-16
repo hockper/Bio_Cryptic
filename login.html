@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+
+        <div class="left-panel">
+            <p class="panel-text">
+                Através das imagens do olho de K. Voss você conseguirá reconstruir sua assinatura biometria. Use ela para obter acesso ao sistema.
+            </p>
+            <a href="eye.jpg" download="eye.jpg" class="action-button">
+                DADOS BIOMÉTRICOS
+            </a>
+        </div>
+
+        <div class="right-panel">
+            <form id="login-form" class="login-container">
+                <h2 class="panel-title">> ACESSO AO TERMINAL</h2>
+                
+                <div class="input-group">
+                    <label for="password">LEITURA BIOMÉTRICA:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div id="error-message" class="error-message">
+                    </div>
+
+                <button type="submit" class="action-button">ACESAR</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="sha256.js"></script>
+
+    <script>
+        // Seleciona os elementos do formulário
+        const loginForm = document.getElementById('login-form');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('error-message');
+        
+        
+        loginForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); 
+
+            // Pega os valores digitados e converte para minúsculas para não diferenciar maiúsculas/minúsculas
+            const enteredPassword = passwordInput.value;
+
+            // Calcula o hash SHA256 dos valores digitados
+            // A função CryptoJS.SHA256() vem do arquivo sha256.js que incluímos
+            const hashedPassword = await sha256(enteredPassword);
+            
+            // !! HASHES DAS CREDENCIAIS CORRETAS !!
+            // Estes são os hashes que calculamos no Passo 2
+            const correctPasswordHash = '831fe6629eaa786f886c2ea1bd9189758401a901e024efc20b64d34b4d911c15';
+
+            // MODIFICAÇÃO 5: Verifica se AMBOS, usuário e senha, estão corretos
+            if (hashedPassword === correctPasswordHash) {
+                // Se estiverem corretos, redireciona para a próxima página
+                window.location.href = 'sistema.html';
+            } else {
+                // Se um deles (ou ambos) estiver incorreto, exibe uma mensagem de erro genérica
+                errorMessage.textContent = 'CREDENCIAIS  INVÁLIDAS'; // MODIFICAÇÃO 6: Mensagem de erro atualizada
+                // Limpa ambos os campos
+                usernameInput.value = '';
+                passwordInput.value = '';
+            }
+        });
+    </script>
+
+</body>
+</html>

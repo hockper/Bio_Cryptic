@@ -1,0 +1,123 @@
+
+/*
+ * Estilos para o CTF - Operação Íris Quebrada
+ */
+
+/* Configuração base e fundo com o GIF */
+body {
+    /* O caminho para o GIF deve ser o nome do seu arquivo */
+    background-image: url('back.gif');
+    background-size: cover; /* Faz o GIF cobrir toda a tela */
+    background-position: center; /* Centraliza o GIF */
+    background-color: #0a0a0a; /* Cor de fundo caso o GIF não carregue */
+    
+    color: #00ff41; /* Cor principal do texto (verde neon) */
+    
+    /* Usando a fonte 'VT323' para um estilo pixelado/terminal */
+    font-family: 'VT323', monospace;
+    
+    display: flex; /* Usando flexbox para centralizar o conteúdo */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Altura mínima de 100% da tela */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Garante que o padding não estoure o layout */
+
+    
+}
+
+/* Container principal da missão */
+.mission-container {
+    background-color: rgba(10, 24, 30, 0.85); /* Fundo semi-transparente escuro */
+    border: 2px solid #00ffcc; /* Borda ciano neon */
+    border-radius: 8px; /* Bordas levemente arredondadas */
+    padding: 30px 40px;
+    max-width: 800px; /* Largura máxima do container */
+    text-align: center;
+    
+    /* Sombra para dar um efeito de 'glow' (brilho) */
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+    
+    /* Efeito de 'scan lines' (linhas de monitor antigo) */
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.2) 50%, 
+        transparent 50%
+    );
+    background-size: 100% 4px;
+}
+
+/* Título da missão */
+.mission-title {
+    font-family: 'Share Tech Mono', monospace; /* Fonte mais 'moderna' para o título */
+    font-size: 2.5em; /* Tamanho da fonte */
+    color: #00ffcc; /* Cor ciano para o título */
+    text-shadow: 0 0 8px #00ffcc; /* Sombra para o efeito de brilho */
+    margin-bottom: 20px;
+}
+
+/* Texto da missão */
+.mission-text {
+    font-size: 1.4em; /* Tamanho da fonte do parágrafo */
+    line-height: 1.6; /* Espaçamento entre as linhas para melhor leitura */
+    text-align: left; /* Alinhamento à esquerda para parecer um log */
+}
+
+.mission-text strong {
+    color: #ff3b3b; /* Destaque em vermelho para palavras importantes */
+    font-weight: normal; /* Remove o negrito padrão, mantendo só a cor */
+}
+
+/* Botão para iniciar a missão */
+.mission-button {
+    display: inline-block; /* Permite aplicar padding e margin */
+    margin-top: 30px;
+    padding: 15px 30px;
+    
+    background-color: transparent; /* Fundo transparente */
+    border: 2px solid #00ff41; /* Borda verde neon */
+    border-radius: 5px;
+    
+    color: #00ff41; /* Cor do texto */
+    font-size: 1.5em;
+    font-family: 'Share Tech Mono', monospace;
+    text-decoration: none; /* Remove o sublinhado do link */
+    
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Transição suave para o hover */
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.mission-button:hover {
+    background-color: #00ff41; /* Fundo muda para verde */
+    color: #0a0a0a; /* Texto muda para escuro */
+    box-shadow: 0 0 20px #00ff41; /* Aumenta o brilho */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- ESTILO PARA A FLAG FINAL --- */
+.flag-container {
+    margin-top: 40px;
+    padding: 20px;
+    border: 2px dashed #ffeb3b; /* Borda amarela tracejada para destaque */
+    background-color: rgba(50, 50, 20, 0.5);
+    text-align: center;
+}
+
+.flag-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.8em;
+    color: #ffeb3b; /* Cor amarela para a flag */
+    text-shadow: 0 0 8px #ffeb3b;
+}

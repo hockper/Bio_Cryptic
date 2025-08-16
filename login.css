@@ -1,0 +1,146 @@
+/*
+ * Estilos para a segunda etapa do CTF
+ */
+
+/* Configuração base da página */
+body {
+    background-color: #0a0a0a;
+    color: #00ff41;
+    font-family: 'VT323', monospace;
+    margin: 0;
+    padding: 0;
+    /* Efeito de scanlines, igual à página inicial, para consistência */
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.4) 50%, 
+        transparent 50%
+    );
+    background-size: 100% 4px;
+}
+
+/* Container principal que divide a tela em dois */
+.main-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    align-items: stretch; /* Faz os painéis terem a mesma altura */
+}
+
+/* Estilo para os painéis esquerdo e direito */
+.left-panel, .right-panel {
+    flex: 1; /* Faz com que cada painel ocupe metade do espaço */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    text-align: center;
+}
+
+/* Linha vertical para separar os dois painéis */
+.left-panel {
+    
+
+    background-image: url('eye.jpg');
+    background-size: cover; /* Faz o GIF cobrir toda a tela */
+    background-position: center; /* Centraliza o GIF */
+    border-right: 2px solid #00ffcc;
+}
+
+.right-panel {
+    background-image: url('back2.gif');
+    background-size: cover; /* Faz o GIF cobrir toda a tela */
+    background-position: center; /* Centraliza o GIF */
+}
+
+.panel-text {
+    background-color: rgba(10, 24, 30, 0.85); /* Fundo semi-transparente escuro */
+    border: 2px solid #00ffcc; /* Borda ciano neon */
+    border-radius: 8px; /* Bordas levemente arredondadas */
+    padding: 30px 40px;
+    max-width: 800px; /* Largura máxima do container */
+    text-align: center;
+
+    font-size: 1.3em;
+    line-height: 1.6;
+    max-width: 500px; /* Limita a largura do texto para melhor leitura */
+    margin-bottom: 30px;
+}
+
+/* Estilo do container de login no painel direito */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border: 2px solid rgba(0, 255, 65, 0.5);
+    border-radius: 8px;
+    background-color: rgba(10, 30, 20, 0.5);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    background-color: #05140c;
+    border: 1px solid #00ff41;
+    border-radius: 4px;
+    color: #00ff41;
+    font-family: 'VT323', monospace;
+    font-size: 1.5em;
+    box-sizing: border-box; /* Garante que o padding não afete a largura */
+}
+
+/* Remove a borda padrão do navegador ao focar no input */
+.input-group input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ff41;
+}
+
+/* Estilo para o campo de usuário desabilitado */
+.input-group input[readonly] {
+    background-color: #111;
+    color: #aaa;
+    border-color: #555;
+    cursor: not-allowed;
+}
+
+/* Botão de ação (reutilizado do CSS anterior) */
+.action-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: rgba(10, 30, 20, 0.5);
+    border: 2px solid #00ffcc; /* Borda ciano neon */
+    border-radius: 5px;
+    color: #00ff41;
+    font-size: 1.5em;
+    font-family: 'Share Tech Mono', monospace;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    width: auto; /* Ajusta a largura ao conteúdo */
+    text-align: center;
+}
+
+.action-button:hover {
+    background-color: #00ff41;
+    color: #0a0a0a;
+    box-shadow: 0 0 20px #00ff41;
+}
+
+/* Mensagem de erro */
+.error-message {
+    color: #ff3b3b;
+    font-size: 1.2em;
+    height: 20px; /* Define uma altura fixa para não 'empurrar' o layout */
+    margin-top: 15px;
+    text-shadow: 0 0 5px #ff3b3b;
+}
