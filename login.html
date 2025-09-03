@@ -58,22 +58,27 @@
             // Calcula o hash SHA256 dos valores digitados
             // A função CryptoJS.SHA256() vem do arquivo sha256.js que incluímos
             const hashedPassword = await sha256(enteredPassword);
-            
-            // !! HASHES DAS CREDENCIAIS CORRETAS !!
-            // Estes são os hashes que calculamos no Passo 2
-            const correctPasswordHash = '831fe6629eaa786f886c2ea1bd9189758401a901e024efc20b64d34b4d911c15';
 
-            // MODIFICAÇÃO 5: Verifica se AMBOS, usuário e senha, estão corretos
-            if (hashedPassword === correctPasswordHash) {
-                // Se estiverem corretos, redireciona para a próxima página
-                window.location.href = 'sistema.html';
-            } else {
-                // Se um deles (ou ambos) estiver incorreto, exibe uma mensagem de erro genérica
-                errorMessage.textContent = 'CREDENCIAIS  INVÁLIDAS'; // MODIFICAÇÃO 6: Mensagem de erro atualizada
-                // Limpa ambos os campos
-                usernameInput.value = '';
-                passwordInput.value = '';
-            }
+            fetch('/.netlify/functions/Bio_Cryptic/login.js', {
+                method: 'POST',
+                headers: {'Content-type' : 'application/json'},
+                body: JSON.stringify({hashedPassword})
+            })
+            .then(async res => {
+                if (res.status === 200) {
+                    const html = await res.text();
+                    document.open();
+                    document.write(html);
+                    document.close();
+                } else {
+                    // Se um deles (ou ambos) estiver incorreto, exibe uma mensagem de erro genérica
+                    errorMessage.textContent = 'CREDENCIAIS  INVÁLIDAS'; // MODIFICAÇÃO 6: Mensagem de erro atualizada
+                    // Limpa ambos os campos
+                    usernameInput.value = '';
+                    passwordInput.value = '';
+                }
+            })
+
         });
     </script>
 
