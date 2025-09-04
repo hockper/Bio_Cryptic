@@ -58,7 +58,7 @@
             // A função CryptoJS.SHA256() vem do arquivo sha256.js que incluímos
             const hashedPassword = await sha256(enteredPassword);
 
-            fetch('/.netlify/functions/BCrpt_login.js', {
+            fetch('/.netlify/functions/BCrpt_login', {
                 method: 'POST',
                 headers: {'Content-type' : 'application/json'},
                 body: JSON.stringify({hashedPassword})
